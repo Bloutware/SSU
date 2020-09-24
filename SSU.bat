@@ -175,7 +175,7 @@ pause>nul
 goto MAIN
 
 
-:WINDOWS
+:WIN
 cls
 echo.
 echo ============= WINDOWS =============
