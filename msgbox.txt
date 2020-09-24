@@ -1,0 +1,28 @@
+CAIXA DE TEXTO
+
+echo x=msgbox("Bagui e doido",16, "Azideia") >> %temp%\msgbox.vbs
+start %temp%\msgbox.vbs
+
+IDs:
+
+0 =OK button only
+
+1 =OK and Cancel buttons
+
+2 =Abort, Retry, and Ignore buttons
+
+3 =Yes, No, and Cancel buttons
+
+4 =Yes and No buttons
+
+5 =Retry and Cancel buttons
+
++
+
+16 =Critical icon
+
+32 =Question icon
+
+48 =Exclamation icon
+
+64 =Information icon

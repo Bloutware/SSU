@@ -1,0 +1,2 @@
+echo CreateObject("SAPI.SpVoice").Speak"mas poxa vida" > %temp%\msg.vbs
+start %temp%\msg.vbs
