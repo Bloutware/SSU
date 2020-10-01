@@ -13,3 +13,19 @@ ytdl path
 bloatwares
 check disk
 adwcleaner
+
+lista: Get-AppxPackage | Select Name
+
+*colocar o nome do app entre asteriscos*
+
+Get-AppxPackage %app% | Remove-AppxPackage
+
+executar scrpit:
+powershell -NoProfile -Command "Get-AppxPackage | Select Name"
+OU
+powershell "Get-AppxPackage | Select Name"
+
+chamar script:
+powershell -File C:\file.ps1
+OU
+powershell -ExecutionPolicy Bypass C:\file.ps1
