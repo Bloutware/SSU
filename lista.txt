@@ -1,0 +1,108 @@
+Lista de Comandos Power Shell:
+
+Desinstalar 3d builder:
+Get-AppxPackage *3dbuilder* | Remove-AppxPackage
+
+*Desinstalar Alarme e Relógio:
+
+Get-AppxPackage *windowsalarms* | Remove-AppxPackage
+
+*Desinstalar Calculadora:
+
+Get-AppxPackage *windowscalculator* | Remove-AppxPackage
+
+*Desinstalar Calendário e E-mail:
+
+Get-AppxPackage *windowscommunicationsapps* | Remove-AppxPackage
+
+*Desinstalar Camera:
+
+Get-AppxPackage *windowscamera* | Remove-AppxPackage
+
+*Desinstalar Contato Suporte:
+
+Esse aplicativo não pode ser removido.
+
+*Desinstalar Cortana:
+
+Esse aplicativo não pode ser removido.
+
+*Desinstalar Get Office:
+
+Get-AppxPackage *officehub* | Remove-AppxPackage
+
+*Desinstalar Get Skype:
+
+Get-AppxPackage *skypeapp* | Remove-AppxPackage
+
+*Desinstalar Get Started:
+
+Get-AppxPackage *getstarted* | Remove-AppxPackage
+
+*Desinstalar Groove Music:
+
+Get-AppxPackage *zunemusic* | Remove-AppxPackage
+
+*Desinstalar Mapas:
+
+Get-AppxPackage *windowsmaps* | Remove-AppxPackage
+
+*Desinstalar Microsoft Edge:
+
+Esse aplicativo não pode ser removido.
+
+*Desinstalar Microsoft Solitaire Collection:
+
+Get-AppxPackage *solitairecollection* | Remove-AppxPackage
+
+*Desinstalar Money ou finança:
+
+Get-AppxPackage *bingfinance* | Remove-AppxPackage
+
+*Desinstalar Filmes & TV:
+
+Get-AppxPackage *zunevideo* | Remove-AppxPackage
+
+*Desinstalar Noticias:
+
+Get-AppxPackage *bingnews* | Remove-AppxPackage
+
+*Desinstalar OneNote:
+
+Get-AppxPackage *onenote* | Remove-AppxPackage
+
+*Desinstalar Pessoas:
+
+Get-AppxPackage *people* | Remove-AppxPackage
+
+*Desinstalar Phone Companion:
+
+Get-AppxPackage *windowsphone* | Remove-AppxPackage
+
+*Desinstalar Fotos:
+
+Get-AppxPackage *photos* | Remove-AppxPackage
+
+*Desinstalar Store:
+
+Get-AppxPackage *windowsstore* | Remove-AppxPackage
+
+*Desinstalar Esporte:
+
+Get-AppxPackage *bingsports* | Remove-AppxPackage
+
+*Desinstalar Voice Recorder:
+
+Get-AppxPackage *soundrecorder* | Remove-AppxPackage
+
+*Desinstalar Weather:
+
+Get-AppxPackage *bingweather* | Remove-AppxPackage
+
+*Desinstalar Windows Feedback:
+
+Esse aplicativo não pode ser removido.
+
+*Desinstalar Xbox:
+
+Get-AppxPackage *xboxapp* | Remove-AppxPackage
