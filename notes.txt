@@ -1,16 +1,13 @@
 COISAS PRA FAZER
 ==================
-comando pra instalações
 desenhos
 acoplar utilitários
 https://ss64.com/nt/syntax-redirection.html
 https://stackoverflow.com/questions/5034076/what-does-dp0-mean-and-how-does-it-work
 https://www.lifewire.com/what-is-a-system-file-2626015teste
 https://stackoverflow.com/questions/15885132/file-folder-chooser-dialog-from-a-windows-batch-script *****************
-editar senha
 scannow
 ytdl path
-bloatwares
 check disk
 adwcleaner
 
