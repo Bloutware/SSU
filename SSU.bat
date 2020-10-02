@@ -1,6 +1,5 @@
 ﻿@echo off
 chcp 65001
-mode con: cols=130 lines=30
 color 07
 title Sistema Secundario de Usuario
 @echo off
@@ -23,7 +22,7 @@ set /p pass=<lg4.cfg
 type lg.cfg
 echo.
 echo By Bloutware™
-echo -------------------------------------------------------------Beta 3.7------------------------------------------------------------- 
+echo -------------------------------------------------------------Beta 3.9------------------------------------------------------------- 
 echo.
 set "psCommand=powershell -Command "$pword = read-host 'Password' -AsSecureString ; ^
     $BSTR=[System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($pword); ^
@@ -39,28 +38,29 @@ type wlcm.cfg
 echo.
 echo.
 echo ============= INDICE =============
-cmdMenuSel f870 "General" "NULL" "Password" "NULL" "NULL"
+cmdMenuSel f870 "General" "Password" "Source" "NULL"
 
 IF %ERRORLEVEL% == 1 goto GENERAL
-IF %ERRORLEVEL% == 2 goto MAIN
-IF %ERRORLEVEL% == 3 goto PASS
+IF %ERRORLEVEL% == 2 goto PASS
+IF %ERRORLEVEL% == 3 start chrome https://github.com/Bloutware/SSU
 IF %ERRORLEVEL% == 4 goto MAIN
-IF %ERRORLEVEL% == 5 goto MAIN
 
 :GENERAL
 cls
 echo.
 echo.
 echo ============= GENERAL =============
-cmdMenuSel f870 "Commands" "Notes" "Del Recents" "Downloads" "Run As Invoker" "Windows" "back"
+cmdMenuSel f870 "Commands" "Notes" "Del Recents(OFF)" "Downloads" "Check Disk(OFF)" "Run As Invoker" "AppxPackage" "Windows" "back"
 
 IF %ERRORLEVEL% == 1 goto SEL3
 IF %ERRORLEVEL% == 2 goto SEL20
-IF %ERRORLEVEL% == 3 goto SEL16
+IF %ERRORLEVEL% == 3 goto GENERAL
 IF %ERRORLEVEL% == 4 goto DOWN
-IF %ERRORLEVEL% == 5 goto RAI
-IF %ERRORLEVEL% == 6 goto WIN
-IF %ERRORLEVEL% == 7 goto MAIN
+IF %ERRORLEVEL% == 5 goto GENERAL
+IF %ERRORLEVEL% == 6 goto RAI
+IF %ERRORLEVEL% == 7 goto APPS
+IF %ERRORLEVEL% == 8 goto WIN
+IF %ERRORLEVEL% == 9 goto MAIN
 
 :SEL16
 reg import recent.reg
@@ -102,6 +102,7 @@ echo.
 echo.
 echo ============= VIDEOS =============
 echo.
+echo Type -F to format
 echo.
 set /p link="Video Link: "
 ytdl %link%
@@ -175,6 +176,72 @@ pause>nul
 goto MAIN
 
 
+:APPS
+cls
+echo.
+echo ============= APPX PACKAGE =============
+echo.
+echo. Loading list...
+echo.
+powershell "Get-AppxPackage | Select Name"
+echo.
+echo. Copy the name(s)
+pause>nul
+echo.
+cmdMenuSel f870 "SingleDel" "MultiDel" "back"
+
+IF %ERRORLEVEL% == 1 goto DEL1
+IF %ERRORLEVEL% == 2 goto DEL2
+IF %ERRORLEVEL% == 3 goto GENERAL
+
+
+:DEL1
+set p/ app="App Name (*name*): "
+powershell "Get-AppxPackage %app% | Remove-AppxPackage"
+pause
+goto APPS
+
+:DEL2
+cls
+echo.
+echo Current Del list:
+type apps.ps1
+echo.
+echo.
+cmdMenuSel f870 "AddApp" "Delete All" "Clear List" "back"
+
+IF %ERRORLEVEL% == 1 goto DEL3
+IF %ERRORLEVEL% == 2 goto DEL4
+IF %ERRORLEVEL% == 3 goto DEL5
+IF %ERRORLEVEL% == 4 goto APPS
+
+
+:DEL3
+set /p appinput="App Name (*name*): "
+echo "Get-AppxPackage %appinput% | Remove-AppxPackage">> apps.ps1
+goto DEL2
+
+:DEL4
+echo Are you sure?
+echo.
+cmdMenuSel f870 "Yes" "No"
+
+IF %ERRORLEVEL% == 1 echo.
+IF %ERRORLEVEL% == 2 goto DEL2
+
+
+powershell -ExecutionPolicy Bypass -File apps.ps1
+echo Done.
+pause>nul
+goto DEL2
+
+:DEL5
+del apps.ps1
+echo List cleared.
+pause>nul
+goto DEL2
+
+
 :WIN
 cls
 echo.
@@ -183,8 +250,6 @@ echo.
 echo. "slmgr/upk" to wipe old keys
 echo.
 set p/ serial="Serial (with dashs): "
-pause
-goto MAIN
 pause
 slmgr.vbs /ipk %serial%
 pause
